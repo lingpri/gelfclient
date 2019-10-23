@@ -23,7 +23,6 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
-import io.netty.channel.socket.DatagramPacket;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.http.HttpClientCodec;
@@ -32,12 +31,10 @@ import io.netty.handler.ssl.SslContext;
 import io.netty.handler.ssl.SslContextBuilder;
 import io.netty.handler.ssl.util.InsecureTrustManagerFactory;
 import org.graylog2.gelfclient.GelfConfiguration;
-import org.graylog2.gelfclient.GelfMessage;
 import org.graylog2.gelfclient.encoder.GelfHttpEncoder;
 import org.graylog2.gelfclient.encoder.GelfMessageJsonEncoder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import sun.rmi.runtime.Log;
 
 /**
  * A {@link GelfTransport} implementation that uses HTTP(S) to send GELF messages.
@@ -102,7 +99,7 @@ public class GelfHttpTransport extends AbstractGelfTransport {
 
                             @Override
                             public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-                                // We do not receive data.
+                                //ToDo : Neeed to print the Gelf Message instead of Object
                                 LOG.info("Message from ChannelInboundHandlerAdapter is "+msg.toString());
                             }
                             @Override
