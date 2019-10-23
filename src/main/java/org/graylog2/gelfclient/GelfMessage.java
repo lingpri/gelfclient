@@ -16,6 +16,7 @@
 
 package org.graylog2.gelfclient;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -23,7 +24,7 @@ import java.util.Objects;
 /**
  * A GELF message according to the <a href="http://graylog2.org/gelf#specs">GELF specification</a>
  */
-public class GelfMessage {
+public class GelfMessage implements Serializable {
     private final GelfMessageVersion version;
     private final String host;
     private final String message;

@@ -24,14 +24,14 @@ public class HttpPlay {
 
         final GelfConfiguration configuration = new GelfConfiguration(GELP_HTTP_PORT)
                 .transport(GelfTransports.HTTP)
-                .queueSize(1024)
+                .queueSize(2048)
                 .reconnectDelay(5000);
 
         final GelfTransport transport = GelfTransports.create(configuration);
 
 
         int count = 0;
-        while (count < 50) {
+        while (count < 3) {
 
             final GelfMessage msg = new GelfMessage("Howdy world! " + count + " " + configuration.getTransport().toString());
 
