@@ -31,7 +31,7 @@ public class GelfHttpEncoder extends MessageToMessageEncoder<ByteBuf> {
         request.headers().set(HttpHeaderNames.HOST, uri.getHost());
         request.headers().set(HttpHeaderNames.CONTENT_TYPE, HttpHeaderValues.APPLICATION_JSON);
         request.headers().set(HttpHeaderNames.CONTENT_LENGTH, msg.readableBytes());
-        request.headers().set(HttpHeaderNames.CONNECTION, HttpHeaderValues.CLOSE);
+        request.headers().set(HttpHeaderNames.CONNECTION, HttpHeaderValues.KEEP_ALIVE);
 
         list.add(request);
     }
